@@ -1,15 +1,28 @@
 server:
-  port: 8000
+  port: 8080
 
 spring:
   profiles:
     active: local
   application:
     name: demo
-JWT:
-  secret-key: G8f9kA8g9DxZ/3v7H2g1V6f9l3A1m6YdP3B7h4Q6l8c=
-  access-expiration-time: 600 # 10? 600
-  refresh-expiration-time: 864000 # 10? 864000
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: admin
+    password: admin1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    open-in-view: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 500
 logging.level:
   org.hibernate.SQL: debug
 springdoc:
