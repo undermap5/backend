@@ -2,9 +2,8 @@ package org.bbosiregi.demo.visited_place.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.bbosiregi.demo.location.entity.Location;
 import org.bbosiregi.demo.search.entity.Search;
-import org.bbosiregi.demo.user.entity.User;
+import org.bbosiregi.demo.user.entity.Users;
 
 @Entity
 @Builder
@@ -17,8 +16,8 @@ public class VisitedPlace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "users_id")
+    private Users users;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "search_id")
     private Search search;

@@ -8,8 +8,8 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name="user")
-public class User {
+@Table(name="users")
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,4 +19,6 @@ public class User {
     private String password;
     @Column(name="nickname")
     private String nickname;
+    @Column(name="uid")
+    private String uid;
 }
