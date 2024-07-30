@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public HttpResponse<?> login(@RequestBody LoginDto loginDto) {
+    public HttpResponse<?> login(@RequestBody LoginDto loginDto) throws Exception {
         String uid = userService.login(loginDto);
         LoginResponseDto response = LoginResponseDto.from(uid);
         return new HttpResponse<>(HttpStatus.OK,"Successful Access",response);

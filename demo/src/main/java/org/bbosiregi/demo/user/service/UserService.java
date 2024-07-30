@@ -23,8 +23,10 @@ public class UserService {
         userRepository.save(users);
     }
 
-    public String login(LoginDto loginDto) {
+    public String login(LoginDto loginDto) throws Exception {
         Users users = userRepository.findByUid();
+        if (!users.getLoginId().equals(loginDto.loginId())) throw new Exception("login id 불일치");
+        if (!users.getPassword().equals(loginDto.password())) throw new Exception("비밀번호 불일치");
         return users.getUid();
     }
 }
