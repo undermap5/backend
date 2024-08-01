@@ -82,6 +82,13 @@ logging:
   level:
     org.hibernate.SQL: debug
 
+server:
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
