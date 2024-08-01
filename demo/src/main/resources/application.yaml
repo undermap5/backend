@@ -12,9 +12,13 @@ spring:
     username: myuser
     password: mypassword
     driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: admin_chaduck
+#    password: admin_chaduck01
+#    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
     database: postgresql
     open-in-view: true
