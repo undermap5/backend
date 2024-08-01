@@ -57,6 +57,8 @@ jobs:
             ${{ runner.os }}-gradle-  
       - name: Docker build & push to dockerhub
         run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/demo:v1 -f demo/Dockerfile demo
           docker push ${{ secrets.DOCKER_USERNAME }}/demo:v1
       - name: Deploy to prod
         uses: appleboy/ssh-action@master
