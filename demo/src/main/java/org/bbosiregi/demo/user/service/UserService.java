@@ -5,6 +5,8 @@ import org.bbosiregi.demo.user.dto.LoginDto;
 import org.bbosiregi.demo.user.dto.SignUpDto;
 import org.bbosiregi.demo.user.entity.Users;
 import org.bbosiregi.demo.user.repository.UserRepository;
+import org.bbosiregi.demo.util.error.ErrorCode;
+import org.bbosiregi.demo.util.error.handler.BusinessException;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -23,10 +25,11 @@ public class UserService {
         userRepository.save(users);
     }
 
-//    public String login(LoginDto loginDto) throws Exception {
-//        Users users = userRepository.findByUid();
-//        if (!users.getLoginId().equals(loginDto.loginId())) throw new Exception("login id 불일치");
-//        if (!users.getPassword().equals(loginDto.password())) throw new Exception("비밀번호 불일치");
-//        return users.getUid();
-//    }
+    public void login(LoginDto loginDto) {
+        Users users = userRepository.findByLoginIdAndPassword(
+                loginDto.loginId(),
+                loginDto.password()
+        ).orElseThrow(() -> new BusinessException(ErrorCode.BAD_REQUEST));
+    }
+
 }
