@@ -1,21 +1,71 @@
-server:
-  port: 8080
+#server:
+#  port: 8080
+#
+#spring:
+#  profiles:
+#    active: local
+#  application:
+#    name: demo
+#  http:
+#    encoding:
+#      force: true
+#      charset: UTF-8
+#      enabled: true
+#  datasource:
+#    url: jdbc:postgresql://52.78.113.62:5432/mydatabase
+#    username: myuser
+#    password: mypassword
+#    driver-class-name: org.postgresql.Driver
+#
+#
+##    url: jdbc:postgresql://localhost:5432/postgres
+##    username: admin_chaduck
+##    password: admin_chaduck01
+##    driver-class-name: org.postgresql.Driver
+#
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    database: postgresql
+#    open-in-view: true
+#    generate-ddl: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        default_batch_fetch_size: 500
+#logging.level:
+#  org.hibernate.SQL: debug
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    groups-order: DESC
+#    operationsSorter: method
+#    disable-swagger-default-url: true
+#    display-request-duration: true
+#  api-docs:
+#    path: /api-docs
+#  show-actuator: true
+#  default-consumes-media-type: application/json
+#  default-produces-media-type: application/json
+#  paths-to-match:
+#    - /api/v1/**
 
 spring:
   profiles:
     active: local
   application:
     name: demo
-
   datasource:
     url: jdbc:postgresql://52.78.113.62:5432/mydatabase
     username: myuser
     password: mypassword
     driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/postgres
-#    username: admin_chaduck
-#    password: admin_chaduck01
-#    driver-class-name: org.postgresql.Driver
+  #    url: jdbc:postgresql://localhost:5432/postgres
+  #    username: admin_chaduck
+  #    password: admin_chaduck01
+  #    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -27,8 +77,11 @@ spring:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 500
-logging.level:
-  org.hibernate.SQL: debug
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
