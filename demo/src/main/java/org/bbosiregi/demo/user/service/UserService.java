@@ -16,6 +16,7 @@ import java.util.UUID;
 public class UserService {
     private final UserRepository userRepository;
     public void signUp(SignUpDto signUpDto) {
+        if(userRepository.existsByLoginId(signUpDto.loginId())) throw new BusinessException(ErrorCode.BAD_REQUEST);
         Users users = Users.builder()
                 .loginId(signUpDto.loginId())
                 .password(signUpDto.password())
