@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api/v1/favorite")
+@RequestMapping("/api/v1")
 public class FavoriteController {
     private final FavoritePlaceService favoritePlaceService;
-    @PutMapping
+    @PutMapping("/favorite")
     public HttpResponse<?> checkFavoritePlace(@RequestBody FavoritePlaceDto favoritePlaceDto) {
         favoritePlaceService.checkFavoritePlace(favoritePlaceDto);
         return new HttpResponse<>(HttpStatus.OK,"Successful Access",null);

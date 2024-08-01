@@ -18,10 +18,10 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/api/v1/subway")
+@RequestMapping("/api/v1")
 public class SubwayInfoController {
     private final SubwayInfoService subwayInfoService;
-    @GetMapping
+    @GetMapping("/subway")
     public HttpResponse<?> getSearchStation() {
         List<SubwayInfo> stationList = subwayInfoService.getAllStation();
         return new HttpResponse<>(HttpStatus.OK,"Successful Access",stationList);
