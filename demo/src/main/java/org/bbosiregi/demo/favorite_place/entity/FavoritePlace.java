@@ -2,7 +2,9 @@ package org.bbosiregi.demo.favorite_place.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.bbosiregi.demo.location.entity.Location;
 import org.bbosiregi.demo.search.entity.Search;
+import org.bbosiregi.demo.subway_info.entity.SubwayInfo;
 import org.bbosiregi.demo.user.entity.Users;
 
 @Entity
@@ -19,6 +21,6 @@ public class FavoritePlace {
     @JoinColumn(name = "users_id")
     private Users users;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "search_id")
-    private Search search;
+    @JoinColumn(name = "subwayInfo_id")
+    private SubwayInfo subwayInfo;
 }
