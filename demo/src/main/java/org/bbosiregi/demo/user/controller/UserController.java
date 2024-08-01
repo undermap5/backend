@@ -2,7 +2,6 @@ package org.bbosiregi.demo.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.bbosiregi.demo.user.dto.LoginDto;
-import org.bbosiregi.demo.user.dto.LoginResponseDto;
 import org.bbosiregi.demo.user.dto.SignUpDto;
 import org.bbosiregi.demo.user.service.UserService;
 
@@ -23,9 +22,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public HttpResponse<?> login(@RequestBody LoginDto loginDto) throws Exception {
-//        String uid = userService.login(loginDto);
-//        LoginResponseDto response = LoginResponseDto.from(uid);
+    public HttpResponse<?> login(@RequestBody LoginDto loginDto) {
+        userService.login(loginDto);
         return new HttpResponse<>(HttpStatus.OK,"Successful Access",null);
     }
 }
